@@ -23,7 +23,7 @@ class Movie{
     void printMovie(){
         cout<<"Movie: "<<title<<endl;
         cout<<setw(5)<<"Year Released: "<<year<<endl;
-        cout<<"Screenwriter: "<<writer<<endl;
+        cout<<setw(5)<<"Screenwriter: "<<writer<<endl;
         cout<<endl;
     }
 };
@@ -44,7 +44,9 @@ int main(){
             temp->setTitle(tT);
             //second line = year
             int tY;
-            cin>>tY;
+            fin.ignore();
+            fin>>tY;
+            fin.ignore();
             temp->setYear(tY);
             //third line = screenwriter
             string tW;
@@ -54,8 +56,8 @@ int main(){
             movieList.push_back(*temp);
         }
         fin.close();
-        //read from input starts here=========================================
-        //print begins here
+        //read from input ends here=========================================
+        for (Movie M : movieList) M.printMovie();
     }
     else
         cout<<"File not found.\n";
