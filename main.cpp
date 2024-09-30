@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <fstream>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ class Movie{
     public:
     void setYear(int Year){year=Year;}
     void setTitle(string Title){title = Title;}
-    void setWriter(string Writer){writer = Writer}
+    void setWriter(string Writer){writer = Writer;}
     //getters
 
     //constructor
@@ -26,5 +27,26 @@ class Movie{
 };
 
 int main(){
-    
+    ifstream fin;
+    fin.open("input.txt");
+    int i = 1;
+    if(fin.good()){
+        Movie *temp = new Movie();
+        while(!fin.eof()){
+            //first line = screenwriter
+            string tW;
+            getline(fin, tW);
+            temp->setWriter(t);
+            //second line = year
+            int tY;
+            cin>>tY;
+            temp->setYear(tY);
+            //third line
+
+            //append
+        }
+        fin.close();
+    }
+    else
+        cout<<"File not found.\n";
 }
