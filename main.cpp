@@ -16,7 +16,9 @@ class Movie{
     void setTitle(string Title){title = Title;}
     void setWriter(string Writer){writer = Writer;}
     //getters
-
+    int getYear(int Year){return year;;}
+    string getTitle(string Title){return title;}
+    string getWriter(string Writer){return writer;}
     //constructor
     Movie(){}
     Movie(int Year, string Title,string Writer){setYear(Year);setTitle(Title);setWriter(Writer);}
@@ -55,7 +57,7 @@ int main(){
             movieList.push_back(*temp);
         }
         fin.close();
-        //read from input ends here=========================================
+        //display here.
         for (Movie M : movieList) M.printMovie();
     }
     else
