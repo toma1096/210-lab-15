@@ -44,7 +44,6 @@ int main(){
             temp->setTitle(tT);
             //second line = year
             int tY;
-            fin.ignore();
             fin>>tY;
             fin.ignore();
             temp->setYear(tY);
@@ -61,4 +60,5 @@ int main(){
     }
     else
         cout<<"File not found.\n";
+    return 0;
 }
