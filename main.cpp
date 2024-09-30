@@ -2,6 +2,7 @@
 #include <string>
 #include <iomanip>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class Movie{
     //getters
 
     //constructor
+    Movie(){}
     Movie(int Year, string Title,string Writer){setYear(Year);setTitle(Title);setWriter(Writer);}
     void printMovie(){
         cout<<"Movie: "<<title<<endl;
@@ -27,25 +29,33 @@ class Movie{
 };
 
 int main(){
+    //container for movies
+    vector<Movie> movieList; 
+    //read from input starts here=========================================
     ifstream fin;
     fin.open("input.txt");
     int i = 1;
     if(fin.good()){
         Movie *temp = new Movie();
         while(!fin.eof()){
-            //first line = screenwriter
-            string tW;
-            getline(fin, tW);
-            temp->setWriter(t);
+            //first line = title
+            string tT;
+            getline(fin,tT);
+            temp->setTitle(tT);
             //second line = year
             int tY;
             cin>>tY;
             temp->setYear(tY);
-            //third line
-
+            //third line = screenwriter
+            string tW;
+            getline(fin, tW);
+            temp->setWriter(tW);
             //append
+            movieList.push_back(*temp);
         }
         fin.close();
+        //read from input starts here=========================================
+        //print begins here
     }
     else
         cout<<"File not found.\n";
